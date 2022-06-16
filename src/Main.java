@@ -48,7 +48,7 @@ public class Main {
     }
 
     public static void executeBlog(Blog blog){
-        System.out.println("\nBenvenuto nel Blog!\nPremi 1 per vedere tutti gli Articoli o premi 2 per effettuare la ricerca per ID!\n1)Mostra tutti gli articoli\n2)Ricerca Articolo per ID");
+        System.out.println("\nBenvenuto nel Blog!\nPremi 1 per vedere tutti gli Articoli o premi 2 per effettuare la ricerca per ID!\n1) Mostra tutti gli articoli\n2) Ricerca Articolo per ID");
         Scanner scanner = new Scanner(System.in);
         int x = scanner.nextInt();
 
@@ -57,8 +57,9 @@ public class Main {
             case 1: blog.stampaArticoli();
                 break;
 
-            case 2: System.out.println("Selezione l'ID del tuo Articolo: "); int y = scanner.nextInt(); if(y <= blog.getArticoli().length){ blog.stampaArticoloPerId(y);}else{
-                System.out.println("Articolo inesistente!");
+            case 2: System.out.println("Selezione l'ID del tuo Articolo: "); int y = scanner.nextInt(); if(y > blog.getArticoli().length || y <= 0){ System.out.println("Articolo inesistente!"); }
+            else{
+                blog.stampaArticoloPerId(y);
             }
                 break;
 
